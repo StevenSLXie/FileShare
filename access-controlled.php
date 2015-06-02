@@ -54,13 +54,9 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
         $fileName = addslashes($fileName);
     }
 
-    $servername = "localhost";
-    $username = "sxie2";
-    $password = "2xiexing";
-    $dbname = "php";
 
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn = new PDO("mysql:host=$fgmembersite->db_host;dbname=$fgmembersite->database", $fgmembersite->username, $fgmembersite->pwd);
         $username = $fgmembersite->UserFullName();
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
